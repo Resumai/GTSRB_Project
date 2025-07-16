@@ -1,10 +1,9 @@
 import pandas as pd
 
-default_file = pd.read_csv("data/GTSRB/predictions.csv", sep=";")
 
-def df_compare(df_pred):
-    df_final = pd.read_csv("data/GTSRB/GT-Final_test.csv", sep=";")
-
+def df_compare(df_pred : pd.DataFrame, df_final : pd.DataFrame):
+    if df_final is None or df_final.empty:
+        df_final = pd.read_csv("data/GTSRB/GT-Final_test.csv", sep=";")
     df_final = df_final[["Filename", "ClassId"]]
 
 

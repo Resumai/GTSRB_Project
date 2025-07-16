@@ -47,8 +47,9 @@ def build_tree(path: Path, tree: Tree, max_entries: int = 5, exclude_dirs=None):
         tree.add(f"[dim]... and {len(entries) - max_entries} more")
 
 # Example usage
-exclude = {"__pycache__", ".git", ".venv_3.12", ".idea", "GTSRB"}
-root_path = Path(".")
-tree = Tree(f"[bold green]{root_path.resolve().name}")
-build_tree(root_path, tree, max_entries=12, exclude_dirs=exclude)
-print(tree)
+if __name__ == "__main__":
+    exclude = {"__pycache__", ".git", ".venv_3.12", ".idea", "GTSRB"}
+    root_path = Path(".")
+    tree = Tree(f"[bold green]{root_path.resolve().name}")
+    build_tree(root_path, tree, max_entries=12, exclude_dirs=exclude)
+    print(tree)
