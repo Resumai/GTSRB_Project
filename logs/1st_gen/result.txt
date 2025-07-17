@@ -1,1 +1,2 @@
+SimpleCNN
 Matches: 11178/12630 (88.50%)

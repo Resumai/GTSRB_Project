@@ -1,9 +1,10 @@
+MODEL_NAME = "simple_cnn"
+
 # Paths
 TRAIN_DATA = "data/GTSRB/Training"
-# MODEL_SAVE_PATH = "models/saved/best_cnn_model.pth"
-MODEL_SAVE_PATH = "best_cnn_model.pth"
 FINAL_TEST_PATH = "data/GTSRB/Final_Test"
 GROUND_TRUTH_CSV = "data/GTSRB/GT-Final_test.csv"
+MODEL_SAVE_PATH = "models/saved/last_cnn_model.pth"
 
 # Model / Training
 BATCH_SIZE = 64

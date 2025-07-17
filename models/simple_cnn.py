@@ -1,5 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
+from configs import cnn_config as cfg
 
 
 # SimpleCNN, is in fact, not that simple at all.
@@ -8,7 +9,7 @@ import torch.nn.functional as F
 # While I certainly don’t yet fully understand every low-level mathematical detail, 
 # I documented and annotated the structure as I learned.
 class SimpleCNN(nn.Module):
-    def __init__(self, num_classes=43):  # GTSRB has 43 traffic sign classes
+    def __init__(self, num_classes=cfg.NUM_CLASSES):  # GTSRB has 43 traffic sign classes
         super(SimpleCNN, self).__init__()
 
         # 3 input channels(rgb), 
