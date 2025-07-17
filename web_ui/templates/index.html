@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>GTSRB Classifier</title></head>
+<body>
+    <h1>Upload a Traffic Sign</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction is not none %}
+        <h2>Predicted Class: {{ prediction }}</h2>
+        <img src="{{ image_url }}" alt="Uploaded Image" width="200">
+    {% endif %}
+</body>
+</html>

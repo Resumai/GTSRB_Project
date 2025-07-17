@@ -3,10 +3,11 @@ import torch
 import pandas as pd
 from torch.utils.data import DataLoader
 from utils import GTSRBImageLoader, df_compare, get_torch_model, append_to_csv
-# Based of config, model gets chosen:
+
+# Different config - different model
 from configs import cnn_config as cfg 
 
-# Setup
+# Setup device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load unlabeled test dataset
@@ -15,7 +16,6 @@ final_loader = DataLoader(final_dataset, batch_size=32, shuffle=False)
 
 # Load model
 model = get_torch_model(cfg.MODEL_NAME).to(device)
-model = model.to(device)
 model.load_state_dict(torch.load(cfg.MODEL_SAVE_PATH, map_location=device))
 model.eval()
 
@@ -39,5 +39,5 @@ def torch_predict(model, final_loader, device):
 
 predictions = torch_predict(model, final_loader, device)
 
-df = pd.DataFrame(predictions, columns=["Filename", "ClassId"])
-df_compare(df, cfg.FINAL_TEST_PATH)
+df_pred_list = pd.DataFrame(predictions, columns=["Filename", "ClassId"])
+df_compare(df_pred_list, cfg.GROUND_TRUTH_CSV)

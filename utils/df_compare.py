@@ -1,13 +1,12 @@
 import pandas as pd
 
 
-def df_compare(df_pred : pd.DataFrame, df_final : pd.DataFrame):
-    if df_final is None or df_final.empty:
-        df_final = pd.read_csv("data/GTSRB/GT-Final_test.csv", sep=";")
-    df_final = df_final[["Filename", "ClassId"]]
+def df_compare(df_preds : pd.DataFrame, df_finals : pd.DataFrame):
+    df_finals = pd.read_csv(df_finals, sep=";")
+    df_finals = df_finals[["Filename", "ClassId"]]
 
 
-    merged_df = pd.merge(df_pred, df_final, on='Filename', suffixes=('_pred', '_final'))
+    merged_df = pd.merge(df_preds, df_finals, on='Filename', suffixes=('_pred', '_final'))
     merged_df['is_match'] = merged_df['ClassId_pred'] == merged_df['ClassId_final']
 
     total = len(merged_df)

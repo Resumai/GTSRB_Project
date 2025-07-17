@@ -41,7 +41,7 @@ train_losses, val_accuracies = train_torch_model(
     criterion=criterion,
     optimizer=optimizer,
     device=device,
-    file_name=cfg.MODEL_SAVE_PATH
+    model_save_path=cfg.MODEL_SAVE_PATH
 )
 plot_cnn_training(train_losses, val_accuracies)
 
