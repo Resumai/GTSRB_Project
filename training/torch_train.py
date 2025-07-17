@@ -3,7 +3,7 @@ from tqdm import tqdm
 
 
 
-def train_torch_model(model : torch.nn.Module, train_loader, val_loader, epochs, criterion , optimizer : torch.optim.Optimizer, device, file_name=None):
+def train_torch_model(model : torch.nn.Module, train_loader, val_loader, epochs, criterion , optimizer : torch.optim.Optimizer, device, model_save_path=None):
     train_losses = []
     val_accuracies = []
     for epoch in range(epochs):
@@ -44,11 +44,11 @@ def train_torch_model(model : torch.nn.Module, train_loader, val_loader, epochs,
         val_acc = correct / total
 
         # Saving best current model
-        if file_name:
+        if model_save_path:
             best_acc = 0.0
             if val_acc > best_acc:
                 best_acc = val_acc
-                torch.save(model.state_dict(), file_name)
+                torch.save(model.state_dict(), model_save_path)
                 
         print(f"Epoch {epoch+1}: Loss = {avg_train_loss:.4f}, Val Accuracy = {val_acc:.4f}")
 
@@ -56,6 +56,6 @@ def train_torch_model(model : torch.nn.Module, train_loader, val_loader, epochs,
         train_losses.append(avg_train_loss)
         val_accuracies.append(val_acc)
     # Quality of life for sanity
-    if file_name:
-        print(f"Best current model saved to file {file_name}.")
+    if model_save_path:
+        print(f"Best current model saved to file {model_save_path}.")
     return train_losses, val_accuracies
