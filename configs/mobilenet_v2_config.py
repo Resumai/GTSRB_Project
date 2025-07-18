@@ -10,12 +10,12 @@ MODEL_SAVE_PATH = "models/saved/last_mobilenet_v2_model.pth"
 LOG_VA_TL = "logs/last_mobilenet_v2_log.csv"
 
 
-LOAD_MODEL = "models/saved/last_mobilenet_v2.pth"
+LOAD_MODEL = "models/saved/last_mobilenet_v2_model.pth"
 OPTIMIZER = "Adam"
 
 # Basic settings
 BATCH_SIZE = 64
-EPOCHS = 10
+EPOCHS = 18
 LEARNING_RATE = 0.001
 
 

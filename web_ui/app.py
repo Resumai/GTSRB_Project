@@ -6,7 +6,7 @@ from PIL import Image
 import torch
 from torchvision import transforms
 from utils import get_default_transform, get_torch_model, id_to_label
-from configs import cnn_config as cfg
+from configs import cfg_current as cfg
 
 app = Flask(__name__)
 UPLOAD_FOLDER = "web_ui/static/uploads"
@@ -15,11 +15,11 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-from models.simple_cnn import SimpleCNN
-model = SimpleCNN().to("cpu")
-model.load_state_dict(torch.load("models/saved/last_cnn_model_run11.pth", map_location="cpu"))
-# model = get_torch_model(cfg.MODEL_NAME).to(device)
-# model.load_state_dict(torch.load(cfg.MODEL_SAVE_PATH, map_location=device))
+# from models.simple_cnn import SimpleCNN
+# model = SimpleCNN().to("cpu")
+# model.load_state_dict(torch.load("models/saved/last_cnn_model_run11.pth", map_location="cpu"))
+model = get_torch_model(cfg.MODEL_NAME).to(device)
+model.load_state_dict(torch.load(cfg.MODEL_SAVE_PATH, map_location=device))
 model.eval()
 
 transform = get_default_transform()
