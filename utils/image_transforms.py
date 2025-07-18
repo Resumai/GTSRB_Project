@@ -2,7 +2,7 @@ import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from torchvision import transforms
-from configs import cnn_config as cfg
+from configs import cfg_current as cfg
 
 
 # Settings for GTSRB Image Loader
