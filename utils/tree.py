@@ -73,5 +73,5 @@ if __name__ == "__main__":
     root_path = Path(".")
     tree = Tree(f"[bold green]{root_path.resolve().name}")
     print("Excluded:", exclude)
-    build_tree(root_path, tree, max_entries=14, exclude_dirs=exclude)
+    build_tree(root_path, tree, max_entries=15, exclude_dirs=exclude)
     print(tree)

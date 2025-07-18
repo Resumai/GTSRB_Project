@@ -1,0 +1,27 @@
+#,Model,Optimizer,LR,BatchSize,DropoutRate,Epochs,RBrighness,RContrast,RSaturation,RRotation,WidthShift,HeightShift,FinalTrainLoss,FinalValAcc,Notes
+1,simple_cnn,Adam,0.001,64,N/A,1,N/A,N/A,N/A,N/A,N/A,N/A,1.62716,0.83971,Test run of logging
+2,simple_cnn,Adam,0.001,64,N/A,10,N/A,N/A,N/A,N/A,N/A,N/A,0.02462,0.9833,Slight increase TL between epochs 8-9
+3,simple_cnn,Adam,0.001,64,N/A,8,N/A,N/A,N/A,N/A,N/A,N/A,0.02498,0.98311,Drop of VA between 4-7 then increase again
+4,simple_cnn,Adam,0.001,64,N/A,10,0.2,0.2,0.2,10,0.1,0.1,0.03357,0.98292,None
+5,simple_cnn,Adam,0.0012,48,N/A,10,0.2,0.2,0.2,10,0.1,0.1,0.02033,0.98011,None
+6,simple_cnn,Adam,0.0012,64,N/A,10,0.2,0.2,0.2,10,0.1,0.1,0.02455,0.97691,None
+7,simple_cnn,Adam,0.0012,128,N/A,10,0.2,0.2,0.2,10,0.1,0.1,0.02506,0.98123,None
+8,simple_cnn,Adam,0.0012,48,0.2,10,0.2,0.2,0.2,10,0.1,0.1,0.02491,0.96547,None
+9,simple_cnn,Adam,0.0012,64,0.2,10,0.2,0.2,0.2,10,0.1,0.1,0.01197,0.98742,None
+10,simple_cnn,Adam,0.0012,128,0.2,10,0.2,0.2,0.2,10,0.1,0.1,0.03185,0.97485,None
+11,simple_cnn,Adam,0.0012,48,0.4,10,0.2,0.2,0.2,10,0.1,0.1,0.01753,0.98198,None
+12,simple_cnn,Adam,0.0012,64,0.4,10,0.2,0.2,0.2,10,0.1,0.1,0.01906,0.98011,None
+13,simple_cnn,Adam,0.0012,128,0.4,10,0.2,0.2,0.2,10,0.1,0.1,0.01609,0.98705,None
+14,simple_cnn,Adam,0.0008,48,N/A,10,0.2,0.2,0.2,10,0.1,0.1,0.02004,0.98818,None
+15,simple_cnn,Adam,0.0008,64,N/A,10,0.2,0.2,0.2,10,0.1,0.1,0.0254,0.98423,None
+16,simple_cnn,Adam,0.0008,128,N/A,10,0.2,0.2,0.2,10,0.1,0.1,0.02556,0.96753,None
+17,simple_cnn,Adam,0.0008,48,0.2,10,0.2,0.2,0.2,10,0.1,0.1,0.02508,0.97973,None
+18,simple_cnn,Adam,0.0008,64,0.2,10,0.2,0.2,0.2,10,0.1,0.1,0.0251,0.98667,None
+19,simple_cnn,Adam,0.0008,128,0.2,10,0.2,0.2,0.2,10,0.1,0.1,0.02869,0.97767,None
+20,simple_cnn,Adam,0.0008,48,0.4,10,0.2,0.2,0.2,10,0.1,0.1,0.02763,0.98198,None
+21,simple_cnn,Adam,0.0008,64,0.4,10,0.2,0.2,0.2,10,0.1,0.1,0.01607,0.98442,None
+22,simple_cnn,Adam,0.0008,128,0.4,10,0.2,0.2,0.2,10,0.1,0.1,0.05224,0.97091,None
+23,simple_cnn,Adam,0.0005,48,N/A,10,0.2,0.2,0.2,10,0.1,0.1,0.03238,0.98236,None
+24,simple_cnn,Adam,0.0005,64,N/A,10,0.2,0.2,0.2,10,0.1,0.1,0.03949,0.97279,None
+25,simple_cnn,Adam,0.0005,128,N/A,10,0.2,0.2,0.2,10,0.1,0.1,0.06224,0.97072,None
+26,simple_cnn,Adam,0.0005,48,0.2,10,0.2,0.2,0.2,10,0.1,0.1,0.03123,0.98086,None

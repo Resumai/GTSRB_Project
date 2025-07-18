@@ -10,6 +10,7 @@
 
     {% if prediction is not none %}
         <h2>Predicted Class: {{ prediction }}</h2>
+        <h2>Class Name: {{ label }}</h2>
         <img src="{{ image_url }}" alt="Uploaded Image" width="200">
     {% endif %}
 </body>

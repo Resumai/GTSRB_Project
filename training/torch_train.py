@@ -1,6 +1,21 @@
 import torch
 from tqdm import tqdm
 
+from sklearn.metrics import confusion_matrix
+import numpy as np
+
+
+
+def print_confusion_matrix(cm):
+    num_classes = cm.shape[0]
+    print("\nConfusion Matrix (Validation Set):")
+    print("     " + " ".join([f"{i:>3}" for i in range(num_classes)]))
+    for i, row in enumerate(cm):
+        print(f"{i:>3} | " + " ".join(f"{val:>3}" for val in row))
+
+
+
+
 
 
 def train_torch_model(model : torch.nn.Module, train_loader, val_loader, epochs, criterion , optimizer : torch.optim.Optimizer, device, model_save_path=None):
@@ -33,13 +48,21 @@ def train_torch_model(model : torch.nn.Module, train_loader, val_loader, epochs,
         # Validation
         model.eval()
         correct = total = 0
+
+        all_preds = []
+        all_labels = []
         with torch.no_grad():
             for images, labels in val_loader:
                 images, labels = images.to(device), labels.to(device)
                 outputs = model(images)
                 _, predicted = torch.max(outputs, 1)
+
                 total += labels.size(0)
                 correct += (predicted == labels).sum().item()
+
+
+                all_preds.extend(predicted.cpu().numpy())
+                all_labels.extend(labels.cpu().numpy())
 
         val_acc = correct / total
 
@@ -55,6 +78,10 @@ def train_torch_model(model : torch.nn.Module, train_loader, val_loader, epochs,
         # For graph
         train_losses.append(avg_train_loss)
         val_accuracies.append(val_acc)
+    # cm = confusion_matrix(all_labels, all_preds)
+    # print_confusion_matrix(cm)
+
+
     # Quality of life for sanity
     if model_save_path:
         print(f"Best current model saved to file {model_save_path}.")
