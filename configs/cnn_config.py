@@ -10,12 +10,13 @@ MODEL_SAVE_PATH = "models/saved/last_cnn_model.pth"
 LOG_VA_TL = "logs/last_cnn_log.csv"
 
 
-LOAD_MODEL = "models/saved/last_cnn_model_run11.pth"
+LOAD_MODEL = "models/saved/last_cnn_model.pth"
+# LOAD_MODEL = "models/saved/last_cnn_model_run11.pth"
 OPTIMIZER = "Adam"
 
 # Basic settings
 BATCH_SIZE = 64
-EPOCHS = 10
+EPOCHS = 12
 LEARNING_RATE = 0.001
 
 
@@ -42,3 +43,5 @@ MAX_HEIGHT_SHIFT = 0.1
 
 RANDOM_ROTATION = 10 # 10 = 10 degrees clockwise or counter-clockwise
 
+CNN_DEPTH = 3  # If None, use default 2-layer CNN; otherwise build dynamically
+CNN_FILTERS = [64, 128, 256]  #  Default setup [32, 64]
