@@ -6,8 +6,6 @@ from utils.image_transforms import get_default_transform
 
 class GTSRBImageLoader(Dataset):
     def __init__(self, root_dir, transform=None, unlabeled=False):
-        if transform is None:
-            transform = get_default_transform()
         self.transform = transform
         self.root_dir = root_dir
         self.samples = []
