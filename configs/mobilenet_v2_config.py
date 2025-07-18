@@ -1,16 +1,16 @@
-MODEL_NAME = "simple_cnn"
+MODEL_NAME = "mobilenet_v2"
 NUM_CLASSES = 43
 
 # Paths
 TRAIN_DATA = "data/GTSRB/Training"
 FINAL_TEST_PATH = "data/GTSRB/Final_Test"
 GROUND_TRUTH_CSV = "data/GTSRB/GT-Final_test.csv"
-MODEL_SAVE_PATH = "models/saved/last_cnn_model.pth"
+MODEL_SAVE_PATH = "models/saved/last_mobilenet_v2_model.pth"
 # Validation Accuracy and Train Loss log
-LOG_VA_TL = "logs/last_cnn_log.csv"
+LOG_VA_TL = "logs/last_mobilenet_v2_log.csv"
 
 
-LOAD_MODEL = "models/saved/last_cnn_model_run11.pth"
+LOAD_MODEL = "models/saved/last_mobilenet_v2.pth"
 OPTIMIZER = "Adam"
 
 # Basic settings

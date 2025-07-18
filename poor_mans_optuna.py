@@ -4,7 +4,7 @@ from configs import cnn_config as cfg
 import importlib
 import torch_train_pipeline
 
-# Define your param grid
+# Param grid
 learning_rates = [0.0012, 0.0008, 0.0005]
 dropouts = [0.0, 0.2, 0.4]
 batch_sizes = [48, 64, 128]
@@ -30,7 +30,7 @@ for lr in learning_rates:
                 print(f"Failed on run {run_id}: {e}")
             run_id += 1
 
-# In case it would start crashing, i could 
+# In case it would start crashing, i could: 
 # import torch
 # torch.cuda.empty_cache()
 # or

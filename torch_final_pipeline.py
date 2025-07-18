@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader
 from utils import GTSRBImageLoader, df_compare, get_torch_model, append_to_csv, get_default_transform, generate_class_summary
 
 # Different config - different model
-from configs import cnn_config as cfg 
+from configs import cfg_current as cfg 
 
 # Setup device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -16,7 +16,7 @@ final_loader = DataLoader(final_dataset, batch_size=32, shuffle=False)
 
 # Load model
 model = get_torch_model(cfg.MODEL_NAME).to(device)
-model.load_state_dict(torch.load(cfg.MODEL_SAVE_PATH, map_location=device))
+model.load_state_dict(torch.load(cfg.LOAD_MODEL, map_location=device))
 # model.load_state_dict(torch.load("models/saved/last_cnn_model3.pth", map_location=device))
 model.eval()
 

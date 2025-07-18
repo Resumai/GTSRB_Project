@@ -4,7 +4,7 @@ from training.torch_train import train_torch_model
 from utils import GTSRBImageLoader, plot_cnn_training, get_torch_model, save_training_log, get_augmented_transform, get_default_transform, log_experiment, display_log
 
 # Different config - different model
-from configs import cnn_config as cfg
+from configs import cfg_current as cfg
 
 # Device (CPU fallback)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -41,7 +41,15 @@ model = get_torch_model(cfg.MODEL_NAME).to(device)
 criterion = torch.nn.CrossEntropyLoss()
 if cfg.OPTIMIZER == "Adam":
     optimizer = torch.optim.Adam(model.parameters(), lr=cfg.LEARNING_RATE)
-# TODO: Try MuonClip Optimizer if possible, recently got nice results, in LLM's tho
+elif cfg.OPTIMIZER == "adamw":
+    optimizer = torch.optim.AdamW(model.parameters(), lr=cfg.LEARNING_RATE)
+elif cfg.OPTIMIZER == "sgd":
+    optimizer = torch.optim.SGD(model.parameters(), lr=cfg.LEARNING_RATE, momentum=0.9)
+elif cfg.OPTIMIZER == "rmsprop":
+    optimizer = torch.optim.RMSprop(model.parameters(), lr=cfg.LEARNING_RATE)
+else:
+    raise ValueError(f"Unsupported optimizer: {cfg.OPTIMIZER}")
+# TODO: Try MuonClip Optimizer too if possible, recently got nice results, in LLM's tho
 
 
 # Training loop, and saving results
